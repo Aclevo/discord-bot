@@ -52,6 +52,10 @@ bot.on('message', message => {
 } else if (message.content.startsWith(prefix + "forums")) {
   message.reply("**Here is Aclevo's forums! :: http://aclevo.xyz/forum**")
 
+} else if (mesage.content.startsWith(prefix + "botname")) {
+  message.reply("Hello there. My name is Aclevo Bot. :)")
+}
+
 } else if (message.content.startsWith(prefix + "warn")) {
   if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("**:x: :: You do not have the permission `MANAGE_MESSAGES` therefore you cannot use this command.**")
   let reason = args.slice(1).join(' ');
