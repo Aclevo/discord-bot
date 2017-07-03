@@ -20,6 +20,7 @@
     "ms": "^1.0.0",
     "node-opus": "^0.2.6",
     "opusscript": "0.0.3",
+    "pm2": "^2.5.0",
     "random-cat": "^1.0.1",
     "random-puppy": "^1.1.0",
     "random_fml": "^1.1.0",
