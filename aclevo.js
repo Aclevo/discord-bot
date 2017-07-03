@@ -41,8 +41,7 @@ bot.on('message', message => {
   });
 
   bot.on('guildUnavilable', '249985790765957121') {
-    <Message>.guild.members.map(members).send("The Aclevo Discord Server is currently down. Please use our alternative form of communication, Slack. If you do not have an account, you may sign up for one at https://aclevoslackinvite.herokuapp.com/.")
-
+    message.guild.members.map(members).send("The Aclevo Discord Server is currently down. Please use our alternative form of communication, Slack. If you do not have an account, you may sign up for one at https://aclevoslackinvite.herokuapp.com/.")
   }
 
   //Filter Swear Words
@@ -75,8 +74,8 @@ bot.on('message', message => {
   const embed = new Discord.RichEmbed()
   .setAuthor(bot.user.username, bot.user.avatarURL)
   .setDescription("Aclevo Bot Help!")
-  .addField("General", " `>ping`\n`>help`\n`>website`\n`>forums` ", true)
-  .addField("Moderation", "To come:tm:", true)
+  .addField("General", " `> ping`\n`> help`\n`> website`\n`> forums` ", true)
+  .addField("Moderation", "> kick`\n`> ban`\n`> ", true)
   .addField("Utility", "To come:tm:", true)
   .addField("Music", "To come:tm:", true)
   .addField("Fun", "To come:tm:", true)
@@ -128,7 +127,7 @@ bot.on('message', message => {
   if (message.member.highestRole.comparePositionTo(message.guild.member(user).highestRole) < 0) return message.reply(":x: :: This person has a higher role than you therefore you cannot kick them!")
   if (user === message.author) return message.reply(`:x: :: Why would you want to kick your self?`)
   if (user === bot.user) return;
-  <message>.mentions.members.first().kick();
+  message.mentions.members.first().kick();
 
   const kickembed1 = new Discord.RichEmbed()
   .setColor()
@@ -189,8 +188,8 @@ const embed = new Discord.RichEmbed()
 });
 
  // Lockdown A Chatroom - DO NOT USE UNLESS ABSOLUTELY NECESSARY
-  if (message.content.startswith (prefix + "lockdown")) {
-
+  if (message.content.startswith (prefix + "lockdown")) || (message.content.startswith (prefix + "911") || {
+  message.reply(":frown: I'm afraid I cannot help you, my friend. This feature is currently in the works.")
 
 
 
