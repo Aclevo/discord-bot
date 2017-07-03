@@ -40,6 +40,11 @@ bot.on('message', message => {
     channel.send(`A sad farewell to ` ${leaver} ` from Aclevo.`)
   });
 
+  bot.on('guildUnavilable', '249985790765957121') {
+    <Message>.guild.members.map(members).send("The Aclevo Discord Server is currently down. Please use our alternative form of communication, Slack. If you do not have an account, you may sign up for one at https://aclevoslackinvite.herokuapp.com/.")
+
+  }
+
   //Filter Swear Words
 
   if (message.content.includes(filterwords)) {
