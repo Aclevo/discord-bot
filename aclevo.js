@@ -31,7 +31,13 @@ bot.on('message', message => {
   bot.on('guildMemberAdd', visitor => {
     const announcements = member.guild.channels.find('name', 'announcements')
     if (!announcements) return;
-    channel.send(`Please welcome` ${visitor} `to the Aclevo Discord Server.`)
+    channel.send(`Please welcome ` ${visitor} ` to the Aclevo Discord Server.`)
+  });
+
+  bot.on('guildMemberRemove', leaver => {
+    const announcements = member.guild.channels.find('name', 'announcements')
+    if (!announcements) return;
+    channel.send(`A sad farewell to ` ${leaver} ` from Aclevo.`)
   });
 
   //Filter Swear Words
@@ -125,12 +131,36 @@ bot.on('message', message => {
   .setAuthor(`${message.author.username} (${message.author.id})`, `${message.author.avatarURL}`)
   .setDescription(`Action: Kick\nUser: ${user.username}#${user.discriminator} (${user.id})\nReason: ${reason}\nModerator: ${message.author.username}#${message.author.discriminator} (${message.author.id})`)
   bot.channels.get(modlog.id).send({embed: kickembed1});
-}
 
   const kickembed2 = new Discord.RichEmbed()
   .setDescription(`Kick\nKicked by ${message.author} in ${message.guild.name} for: ${reason}`)
   user.send({embed: kickembed2});
   message.channel.send("Kick has been processed check <#291317582663909378> for the logs :ok_hand:")
+
+  //Ban A User
+} else if (message.content.startsWith(prefix + "ban")) {
+  if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply(":x: :: You do not have the permission `MANAGE_MESSAGES` therefore you cannot use this command.")
+  let reason = args.slice(1).join(' ');
+  let user = message.mentions.users.first();
+  let modlog = message.guild.channels.get("291317582663909378");
+  if (message.mentions.users.size < 1) return message.reply(':x: :: Please mention a user to ban!').catch(console.error);
+  if (reason.length < 1) return message.reply(':x: :: Please give a reason to ban the mentioned user of.')
+  if (message.member.highestRole.comparePositionTo(message.guild.member(user).highestRole) < 0) return message.reply(":x: :: This person has a higher role than you therefore you cannot ban them!")
+  if (user === message.author) return message.reply(`:x: :: Why would you want to ban your self?`)
+  if (user === bot.user) return;
+  <message>.mentions.members.first().ban();
+
+  const banembed1 = new Discord.RichEmbed()
+  .setColor()
+  .setTimestamp()
+  .setAuthor(`${message.author.username} (${message.author.id})`, `${message.author.avatarURL}`)
+  .setDescription(`Action: Ban\nUser: ${user.username}#${user.discriminator} (${user.id})\nReason: ${reason}\nModerator: ${message.author.username}#${message.author.discriminator} (${message.author.id})`)
+  bot.channels.get(modlog.id).send({embed: banembed1});
+
+  const banembed2 = new Discord.RichEmbed()
+  .setDescription(`Ban\nBanned by ${message.author} in ${message.guild.name} for: ${reason}`)
+  user.send({embed: kickembed2});
+  message.channel.send("Ban has been processed check <#291317582663909378> for the logs :ok_hand:")
 
 
   //Purge Content
@@ -152,6 +182,19 @@ const embed = new Discord.RichEmbed()
 	bot.channels.get(modlog.id).sendEmbed(embed);
 }
 });
+
+ // Lockdown A Chatroom - DO NOT USE UNLESS ABSOLUTELY NECESSARY
+  if (message.content.startswith (prefix + "lockdown")) {
+
+
+
+
+
+  }
+
+
+
+
 
 
 bot.login(config.token)
