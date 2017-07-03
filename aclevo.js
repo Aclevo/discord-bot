@@ -51,10 +51,10 @@ bot.on('message', message => {
   message.author.send({embed: embed})
 
 } else if (message.content.startsWith(prefix + "website")) {
-  message.reply("**Here is Aclevo's website! :: http://aclevo.xyz**")
+  message.reply("Here is Aclevo's website! :: http://aclevo.xyz")
 
 } else if (message.content.startsWith(prefix + "forums")) {
-  message.reply("**Here is Aclevo's forums! :: http://aclevo.xyz/forum**")
+  message.reply("Here is Aclevo's forums! :: http://aclevo.xyz/forum")
 
 } else if (mesage.content.startsWith(prefix + "botname")) {
   message.reply("Hello there. My name is Aclevo Bot. :)")
