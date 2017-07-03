@@ -34,6 +34,10 @@ bot.on('message', message => {
       message.edit(`Pong.. The Aclevo Bot is now online. \`\`${Math.round(bot.ping)}ms\`\``)
 		});
 
+  if (message.content.startswith (prefix + "userpic")) {
+    message.reply("Here is your avatar URL: " message.author.avatarURL)
+  }
+
 } else if (message.content.startsWith(prefix + "help")) {
   message.reply("**Help is on the way. Check your DM'S :mailbox_with_mail:**")
   const embed = new Discord.RichEmbed()
