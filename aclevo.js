@@ -188,15 +188,23 @@ const embed = new Discord.RichEmbed()
 });
 
  // Lockdown A Chatroom - DO NOT USE UNLESS ABSOLUTELY NECESSARY
-  if (message.content.startswith (prefix + "lockdown")) || (message.content.startswith (prefix + "911") || {
-  message.reply(":frown: I'm afraid I cannot help you, my friend. This feature is currently in the works.")
 
-
+ // There are multiple types of lockdowns with this system in place.
+ //The first is an manual lockdown which is triggered by the "lockdown on" command with a reason to lock the chat down.
+  if (message.content.startswith (prefix + "lockdown on")) {
+    if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply(":x: :: You do not have the permission `MANAGE_MESSAGES` therefore you cannot use this command.")
+    if (message.content.contents)
+    let reason = args.slice(1).join(' ');
+    let modlog = message.guild.channels.get("291317582663909378");
+    if (reason.length < 1) return message.reply(':x: :: Please give a reason to initiate a lockdown.')
+    //lockdown
 
 
   }
 
-
+  //The second type of lockdown does not need a reason, and it is used when the server needs to be locked down asap. Automatic Protection is guarenteed.
+ if (message.content.startswith (prefix + "911!")) || message.content.includes(threats && !sarcasm)
+//lockdown
 
 
 
