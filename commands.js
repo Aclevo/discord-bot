@@ -1,4 +1,4 @@
-modules.exports = {}
+modules.exports = {ping, userpic, botpic, website, forums, help, warn, kick, ban, purge, lockdown on, "911!"}
 
 switch (command) {
   case `ping`:

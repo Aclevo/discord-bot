@@ -6,13 +6,12 @@ require("moment-duration-format")
 const fs = require("fs")
 const ms = require("ms")
 const childProcess = require('child_process')
-
-let _commands = require('./commands')
 let prefix = config.prefix
 
-var commands = _commands
+var commands = require(./commands)
 
-if (message.content.startswith(prefix + _commands)) {
+if (message.content.startswith(prefix + commands)) {
+  commands.
 }
 
 
